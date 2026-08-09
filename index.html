@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寿司ガチャ</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      text-align: center;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+    }
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .result {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #e60012;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      padding: 10px;
+      border: 2px dashed #e60012;
+      border-radius: 8px;
+    }
+    .category {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    button {
+      background-color: #e60012;
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(230,0,18,0.3);
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🍣 寿司ガチャ 🍣</h1>
+    <div class="result" id="menuResult">ボタンを押してね！</div>
+    <button onclick="drawMenu()">次になに食べる？</button>
+  </div>
+
+  <script>
+    let menus = [];
+
+    // menu.json を読み込む
+    fetch('menu.json')
+      .then(response => response.json())
+      .then(data => {
+        menus = data;
+      })
+      .catch(error => {
+        console.error('データの読み込みに失敗しました:', error);
+        document.getElementById("menuResult").textContent = "データ読み込みエラー";
+      });
+
+    function drawMenu() {
+      if (menus.length === 0) return;
+      const randomIndex = Math.floor(Math.random() * menus.length);
+      const item = menus[randomIndex];
+      
+      document.getElementById("menuResult").innerHTML = `
+        <div class="category">[${item.category}]</div>
+        <div>${item.name} (${item.price}円)</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>

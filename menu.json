@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "厳選まぐろ赤身", "category": "にぎり", "price": 120 },
+  { "id": 2, "name": "サーモン", "category": "にぎり", "price": 120 },
+  { "id": 3, "name": "えびアボカド", "category": "にぎり", "price": 180 },
+  { "id": 4, "name": "茶碗蒸し", "category": "サイド", "price": 220 },
+  { "id": 5, "name": "カタラーナアイスブリュレ", "category": "デザート", "price": 240 }
+]
