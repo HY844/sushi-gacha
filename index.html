@@ -29,58 +29,92 @@
     .card {
       background: #ffffff;
       border: 3px solid var(--gold-color);
-      padding: 25px 20px;
+      padding: 20px 20px 25px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       max-width: 380px;
       width: 100%;
       box-sizing: border-box;
+      position: relative;
+    }
+
+    /* ヘッダーエリア */
+    .header-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #333;
-      margin-top: 0;
-      margin-bottom: 15px;
-      letter-spacing: 2px;
+      margin: 0;
+      letter-spacing: 1px;
     }
 
-    /* 店舗選択セクション */
-    .shop-section {
-      margin-bottom: 15px;
+    /* 設定アイコンボタン（右端配置） */
+    .config-btn {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+      outline: none;
     }
 
-    .select-label {
+    .config-btn:hover {
+      opacity: 1;
+      transform: rotate(45deg);
+    }
+
+    /* コンパクトな店舗選択 */
+    .shop-select-compact {
+      padding: 4px 8px;
       font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 5px;
-      display: block;
-    }
-
-    .shop-select {
-      width: 100%;
-      padding: 10px 15px;
-      font-size: 1rem;
       font-weight: bold;
-      color: #333;
+      color: #444;
       background-color: #fff;
-      border: 2px solid var(--gold-color);
-      border-radius: 10px;
+      border: 1.5px solid var(--gold-color);
+      border-radius: 8px;
       outline: none;
       cursor: pointer;
     }
 
-    /* カテゴリー選択フィルター */
-    .filter-section {
-      margin-bottom: 15px;
+    /* 共通設定エリア */
+    .setting-box {
+      background: #fff8e1;
+      border: 1.5px solid var(--gold-color);
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      min-height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .filter-title {
-      font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 8px;
+    /* 見出しを左寄せに変更 */
+    .setting-title {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #b78103;
+      margin-bottom: 6px;
+      text-align: left;
     }
 
+    /* カテゴリーボタン */
     .filter-container {
       display: flex;
       flex-wrap: wrap;
@@ -89,16 +123,17 @@
     }
 
     .filter-btn {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: bold;
-      padding: 6px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
-      border: 2px solid #ccc;
+      border: 1.5px solid #ccc;
       background: #f0f0f0;
       color: #888;
       cursor: pointer;
       transition: all 0.2s ease;
       user-select: none;
+      line-height: 1.2;
     }
 
     .filter-btn[data-cat="寿司"].active {
@@ -120,6 +155,19 @@
       border-color: #1565c0;
       background: #e3f2fd;
       color: #1565c0;
+    }
+
+    /* 「好きな寿司一皿」混入スイッチエリア */
+    .free-mode-section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .free-mode-label {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #b78103;
     }
 
     .result-box {
@@ -148,6 +196,7 @@
     .cat-サイドメニュー { background: #e8f5e9; color: #2e7d32; }
     .cat-デザート { background: #fce4ec; color: #ad1457; }
     .cat-ドリンク { background: #e3f2fd; color: #1565c0; }
+    .cat-スペシャル { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
     .cat-default { background: #eee; color: #666; }
 
     .menu-name {
@@ -192,31 +241,209 @@
       box-shadow: none;
       cursor: not-allowed;
     }
+
+    /* トグルスイッチ共通スタイル */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--gold-color);
+    }
+
+    #beerTrickToggle:checked + .slider {
+      background-color: #d9333f;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* モーダル画面 */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 100;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      width: 85%;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .modal-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .count-summary {
+      font-size: 0.8rem;
+      color: #555;
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 12px 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .count-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .count-num {
+      font-weight: bold;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    /* 確率設定セクション */
+    .prob-setting-section {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .prob-setting-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .prob-value {
+      font-size: 0.95rem;
+      color: #b78103;
+      font-weight: bold;
+    }
+
+    .prob-slider {
+      width: 100%;
+      accent-color: var(--gold-color);
+      cursor: pointer;
+    }
+
+    .trick-option {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .trick-label {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .btn-close {
+      background: #eee;
+      border: none;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      border-radius: 20px;
+      color: #555;
+      cursor: pointer;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>🍣 寿司ガチャ 🍣</h1>
-
-    <!-- 店舗選択 -->
-    <div class="shop-section">
-      <label class="select-label" for="shopSelect">行くお店を選択</label>
-      <select id="shopSelect" class="shop-select" onchange="loadMenuData()">
-        <option value="menu/sushiro.json">スシロー</option>
-        <option value="menu/kura.json">くら寿司</option>
-      </select>
-    </div>
-    
-    <!-- カテゴリーフィルター -->
-    <div class="filter-section">
-      <div class="filter-title">対象カテゴリーを選択（タップでON/OFF）</div>
-      <div class="filter-container">
-        <button class="filter-btn active" data-cat="寿司" onclick="toggleFilter(this)">🍣 寿司</button>
-        <button class="filter-btn active" data-cat="サイドメニュー" onclick="toggleFilter(this)">🍜 サイド</button>
-        <button class="filter-btn active" data-cat="デザート" onclick="toggleFilter(this)">🍨 デザート</button>
-        <button class="filter-btn active" data-cat="ドリンク" onclick="toggleFilter(this)">🥤 ドリンク</button>
+    <!-- ヘッダー -->
+    <div class="header-area">
+      <h1>🍣 寿司ガチャ</h1>
+      <div class="header-right">
+        <select id="shopSelect" class="shop-select-compact" onchange="loadMenuData()">
+          <option value="menu/sushiro.json">スシロー</option>
+          <option value="menu/kura.json">くら寿司</option>
+          <option value="menu/hamazushi.json">はま寿司</option>
+        </select>
+        <button class="config-btn" onclick="openModal()" title="設定">⚙️</button>
       </div>
+    </div>
+
+    <!-- 対象カテゴリー（見出し左寄せ） -->
+    <div class="setting-box">
+      <div class="setting-title">対象カテゴリー</div>
+      <div class="filter-container">
+        <button class="filter-btn active" data-cat="寿司" onclick="toggleFilter(this)">寿司</button>
+        <button class="filter-btn active" data-cat="サイドメニュー" onclick="toggleFilter(this)">サイド</button>
+        <button class="filter-btn active" data-cat="デザート" onclick="toggleFilter(this)">デザート</button>
+        <button class="filter-btn active" data-cat="ドリンク" onclick="toggleFilter(this)">ドリンク</button>
+      </div>
+    </div>
+
+    <!-- 好きな寿司一皿 -->
+    <div class="setting-box free-mode-section">
+      <span class="free-mode-label">好きな寿司一皿</span>
+      <label class="switch">
+        <input type="checkbox" id="freeChoiceToggle" checked>
+        <span class="slider"></span>
+      </label>
     </div>
 
     <div class="result-box" id="resultBox">
@@ -226,11 +453,84 @@
     <button class="btn-draw" id="drawBtn" onclick="startGacha()">次になに食べる？</button>
   </div>
 
+  <!-- モーダルパネル（⚙️ボタンを押すと表示） -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+      <div class="modal-title">⚙️ 各種設定・データ情報</div>
+      <div class="count-summary">
+        <div class="count-item"><span>全件</span><span class="count-num" id="cntTotal">-</span></div>
+        <div class="count-item"><span>🍣</span><span class="count-num" id="cntSushi">-</span></div>
+        <div class="count-item"><span>🍜</span><span class="count-num" id="cntSide">-</span></div>
+        <div class="count-item"><span>🍨</span><span class="count-num" id="cntDessert">-</span></div>
+        <div class="count-item"><span>🥤</span><span class="count-num" id="cntDrink">-</span></div>
+      </div>
+
+      <!-- 「好きな寿司一皿」の当選確率調整スライダー -->
+      <div class="prob-setting-section">
+        <div class="prob-setting-header">
+          <span>🍣 「好きな寿司一皿」当選確率</span>
+          <span class="prob-value" id="probValDisplay">20%</span>
+        </div>
+        <input type="range" id="probRange" class="prob-slider" min="5" max="100" step="5" value="20" oninput="updateProbDisplay(this.value)">
+      </div>
+
+      <!-- 隠しイカサマスイッチ（裏設定） -->
+      <div class="trick-option">
+        <span class="trick-label">🍺</span>
+        <label class="switch">
+          <input type="checkbox" id="beerTrickToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <button class="btn-close" onclick="closeModal()">閉じる</button>
+    </div>
+  </div>
+
   <script>
     let menus = [];
     let isSpinning = false;
 
-    // 店舗のJSONファイルを読み込む関数
+    function updateProbDisplay(val) {
+      document.getElementById('probValDisplay').textContent = `${val}%`;
+    }
+
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+
+    function closeModalOutside(event) {
+      if (event.target.id === 'modalOverlay') {
+        closeModal();
+      }
+    }
+
+    function updateCounts(data) {
+      const total = data.length;
+      const sushi = data.filter(item => item.category === '寿司').length;
+      const side = data.filter(item => item.category === 'サイドメニュー').length;
+      const dessert = data.filter(item => item.category === 'デザート').length;
+      const drink = data.filter(item => item.category === 'ドリンク').length;
+
+      document.getElementById('cntTotal').textContent = total;
+      document.getElementById('cntSushi').textContent = sushi;
+      document.getElementById('cntSide').textContent = side;
+      document.getElementById('cntDessert').textContent = dessert;
+      document.getElementById('cntDrink').textContent = drink;
+    }
+
+    function resetCounts() {
+      document.getElementById('cntTotal').textContent = '-';
+      document.getElementById('cntSushi').textContent = '-';
+      document.getElementById('cntSide').textContent = '-';
+      document.getElementById('cntDessert').textContent = '-';
+      document.getElementById('cntDrink').textContent = '-';
+    }
+
     function loadMenuData() {
       const selectedPath = document.getElementById("shopSelect").value;
       const resultBox = document.getElementById("resultBox");
@@ -242,16 +542,17 @@
         })
         .then(data => {
           menus = data;
+          updateCounts(data);
           resultBox.innerHTML = '<div style="color: #666;">ボタンを押してガチャを回そう！</div>';
         })
         .catch(error => {
           console.error('データの読み込みに失敗しました:', error);
           menus = [];
-          resultBox.innerHTML = '<div style="color:#d9333f; font-size: 0.9rem;">メニューデータを準備中です<br>(JSON未配置)</div>';
+          resetCounts();
+          resultBox.innerHTML = '<div style="color:#d9333f; font-size: 0.85rem;">メニューデータを準備中です<br>(JSON未配置)</div>';
         });
     }
 
-    // 初期表示時にデフォルト店舗を読み込み
     window.onload = loadMenuData;
 
     function toggleFilter(btn) {
@@ -268,27 +569,44 @@
       if (['寿司', 'サイドメニュー', 'デザート', 'ドリンク'].includes(cat)) {
         return `cat-${cat}`;
       }
+      if (cat === 'SPECIAL') return 'cat-スペシャル';
       return 'cat-default';
     }
 
     function startGacha() {
       if (isSpinning) return;
 
-      if (menus.length === 0) {
-        alert("選択された店舗のメニューデータがありません。");
-        return;
+      const isBeerTrick = document.getElementById('beerTrickToggle').checked;
+      const isFreeChoiceIncluded = document.getElementById('freeChoiceToggle').checked;
+
+      const specialProbability = parseInt(document.getElementById('probRange').value, 10) / 100;
+
+      let candidateList = [];
+
+      if (!isBeerTrick) {
+        if (menus.length === 0) {
+          alert("選択された店舗のメニューデータがありません。");
+          return;
+        }
+
+        const selectedCats = getSelectedCategories();
+        if (selectedCats.length === 0) {
+          alert("カテゴリーを1つ以上選択してください！");
+          return;
+        }
+
+        candidateList = menus.filter(item => selectedCats.includes(item.category));
+        if (candidateList.length === 0) {
+          alert("選択したカテゴリーのメニューが存在しません。");
+          return;
+        }
+      } else {
+        candidateList = menus.length > 0 ? menus : [{ name: '生ビール', category: 'ドリンク' }];
       }
 
-      const selectedCats = getSelectedCategories();
-      if (selectedCats.length === 0) {
-        alert("カテゴリーを1つ以上選択してください！");
-        return;
-      }
-
-      const filteredMenus = menus.filter(item => selectedCats.includes(item.category));
-      if (filteredMenus.length === 0) {
-        alert("選択したカテゴリーのメニューが存在しません。");
-        return;
+      let animList = [...candidateList];
+      if (isFreeChoiceIncluded && !isBeerTrick) {
+        animList.push({ name: "🎉 好きな寿司一皿！", category: "SPECIAL" });
       }
 
       isSpinning = true;
@@ -301,7 +619,7 @@
       const speed = 70;
 
       const timer = setInterval(() => {
-        const tempItem = filteredMenus[Math.floor(Math.random() * filteredMenus.length)];
+        const tempItem = animList[Math.floor(Math.random() * animList.length)];
         const catClass = getCategoryClass(tempItem.category);
 
         resultBox.innerHTML = `
@@ -313,7 +631,15 @@
         if (counter >= maxCount) {
           clearInterval(timer);
           
-          const finalItem = filteredMenus[Math.floor(Math.random() * filteredMenus.length)];
+          let finalItem;
+          if (isBeerTrick) {
+            finalItem = { name: "生ビール", category: "ドリンク" };
+          } else if (isFreeChoiceIncluded && Math.random() < specialProbability) {
+            finalItem = { name: "🎉 好きな寿司一皿！", category: "SPECIAL" };
+          } else {
+            finalItem = candidateList[Math.floor(Math.random() * candidateList.length)];
+          }
+
           const finalCatClass = getCategoryClass(finalItem.category);
 
           resultBox.innerHTML = `
