@@ -29,10 +29,10 @@
     .card {
       background: #ffffff;
       border: 3px solid var(--gold-color);
-      padding: 30px 20px;
+      padding: 25px 20px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      max-width: 360px;
+      max-width: 380px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -41,22 +41,98 @@
       font-size: 1.4rem;
       color: #333;
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       letter-spacing: 2px;
+    }
+
+    /* 店舗選択セクション */
+    .shop-section {
+      margin-bottom: 15px;
+    }
+
+    .select-label {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .shop-select {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      background-color: #fff;
+      border: 2px solid var(--gold-color);
+      border-radius: 10px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* カテゴリー選択フィルター */
+    .filter-section {
+      margin-bottom: 15px;
+    }
+
+    .filter-title {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 2px solid #ccc;
+      background: #f0f0f0;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .filter-btn[data-cat="寿司"].active {
+      border-color: #d9333f;
+      background: #ffebee;
+      color: #c62828;
+    }
+    .filter-btn[data-cat="サイドメニュー"].active {
+      border-color: #2e7d32;
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .filter-btn[data-cat="デザート"].active {
+      border-color: #ad1457;
+      background: #fce4ec;
+      color: #ad1457;
+    }
+    .filter-btn[data-cat="ドリンク"].active {
+      border-color: #1565c0;
+      background: #e3f2fd;
+      color: #1565c0;
     }
 
     .result-box {
       background: #fafafa;
       border: 2px solid #eee;
       border-radius: 12px;
-      min-height: 120px;
+      min-height: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 20px 0;
+      margin: 15px 0;
       padding: 15px;
-      position: relative;
     }
 
     .category {
@@ -64,11 +140,10 @@
       font-weight: bold;
       padding: 4px 12px;
       border-radius: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: inline-block;
     }
 
-    /* カテゴリーごとの色分け */
     .cat-寿司 { background: #ffebee; color: #c62828; }
     .cat-サイドメニュー { background: #e8f5e9; color: #2e7d32; }
     .cat-デザート { background: #fce4ec; color: #ad1457; }
@@ -76,7 +151,7 @@
     .cat-default { background: #eee; color: #666; }
 
     .menu-name {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #222;
       margin: 5px 0;
@@ -97,8 +172,8 @@
       background: linear-gradient(135deg, #e60012, #aa000d);
       color: white;
       border: none;
-      padding: 16px 32px;
-      font-size: 1.2rem;
+      padding: 15px 30px;
+      font-size: 1.1rem;
       font-weight: bold;
       border-radius: 50px;
       cursor: pointer;
@@ -123,7 +198,27 @@
 
   <div class="card">
     <h1>🍣 寿司ガチャ 🍣</h1>
+
+    <!-- 店舗選択 -->
+    <div class="shop-section">
+      <label class="select-label" for="shopSelect">行くお店を選択</label>
+      <select id="shopSelect" class="shop-select" onchange="loadMenuData()">
+        <option value="menu/sushiro.json">スシロー</option>
+        <option value="menu/kura.json">くら寿司</option>
+      </select>
+    </div>
     
+    <!-- カテゴリーフィルター -->
+    <div class="filter-section">
+      <div class="filter-title">対象カテゴリーを選択（タップでON/OFF）</div>
+      <div class="filter-container">
+        <button class="filter-btn active" data-cat="寿司" onclick="toggleFilter(this)">🍣 寿司</button>
+        <button class="filter-btn active" data-cat="サイドメニュー" onclick="toggleFilter(this)">🍜 サイド</button>
+        <button class="filter-btn active" data-cat="デザート" onclick="toggleFilter(this)">🍨 デザート</button>
+        <button class="filter-btn active" data-cat="ドリンク" onclick="toggleFilter(this)">🥤 ドリンク</button>
+      </div>
+    </div>
+
     <div class="result-box" id="resultBox">
       <div id="statusText" style="color: #666;">ボタンを押してガチャを回そう！</div>
     </div>
@@ -135,18 +230,40 @@
     let menus = [];
     let isSpinning = false;
 
-    // menu.json を読み込む
-    fetch('menu.json')
-      .then(response => response.json())
-      .then(data => {
-        menus = data;
-      })
-      .catch(error => {
-        console.error('データの読み込みに失敗しました:', error);
-        document.getElementById("resultBox").innerHTML = '<div style="color:red;">データ読み込みエラー</div>';
-      });
+    // 店舗のJSONファイルを読み込む関数
+    function loadMenuData() {
+      const selectedPath = document.getElementById("shopSelect").value;
+      const resultBox = document.getElementById("resultBox");
 
-    // カテゴリーに応じたスタイルクラスを返す関数
+      fetch(selectedPath)
+        .then(response => {
+          if (!response.ok) throw new Error('File not found');
+          return response.json();
+        })
+        .then(data => {
+          menus = data;
+          resultBox.innerHTML = '<div style="color: #666;">ボタンを押してガチャを回そう！</div>';
+        })
+        .catch(error => {
+          console.error('データの読み込みに失敗しました:', error);
+          menus = [];
+          resultBox.innerHTML = '<div style="color:#d9333f; font-size: 0.9rem;">メニューデータを準備中です<br>(JSON未配置)</div>';
+        });
+    }
+
+    // 初期表示時にデフォルト店舗を読み込み
+    window.onload = loadMenuData;
+
+    function toggleFilter(btn) {
+      if (isSpinning) return;
+      btn.classList.toggle('active');
+    }
+
+    function getSelectedCategories() {
+      const activeBtns = document.querySelectorAll('.filter-btn.active');
+      return Array.from(activeBtns).map(btn => btn.getAttribute('data-cat'));
+    }
+
     function getCategoryClass(cat) {
       if (['寿司', 'サイドメニュー', 'デザート', 'ドリンク'].includes(cat)) {
         return `cat-${cat}`;
@@ -155,19 +272,36 @@
     }
 
     function startGacha() {
-      if (menus.length === 0 || isSpinning) return;
-      
+      if (isSpinning) return;
+
+      if (menus.length === 0) {
+        alert("選択された店舗のメニューデータがありません。");
+        return;
+      }
+
+      const selectedCats = getSelectedCategories();
+      if (selectedCats.length === 0) {
+        alert("カテゴリーを1つ以上選択してください！");
+        return;
+      }
+
+      const filteredMenus = menus.filter(item => selectedCats.includes(item.category));
+      if (filteredMenus.length === 0) {
+        alert("選択したカテゴリーのメニューが存在しません。");
+        return;
+      }
+
       isSpinning = true;
       const btn = document.getElementById("drawBtn");
       const resultBox = document.getElementById("resultBox");
       btn.disabled = true;
 
       let counter = 0;
-      const maxCount = 15; // ルーレットの回転回数
-      const speed = 70;    // 切り替え速度(ms)
+      const maxCount = 15;
+      const speed = 70;
 
       const timer = setInterval(() => {
-        const tempItem = menus[Math.floor(Math.random() * menus.length)];
+        const tempItem = filteredMenus[Math.floor(Math.random() * filteredMenus.length)];
         const catClass = getCategoryClass(tempItem.category);
 
         resultBox.innerHTML = `
@@ -178,8 +312,8 @@
 
         if (counter >= maxCount) {
           clearInterval(timer);
-          // 確定演出
-          const finalItem = menus[Math.floor(Math.random() * menus.length)];
+          
+          const finalItem = filteredMenus[Math.floor(Math.random() * filteredMenus.length)];
           const finalCatClass = getCategoryClass(finalItem.category);
 
           resultBox.innerHTML = `
