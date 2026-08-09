@@ -1,244 +1,830 @@
-[
-{ "name": "まぐろ", "category": "寿司" },
-{ "name": "特製漬けまぐろ", "category": "寿司" },
-{ "name": "まぐろレアステーキつつみ", "category": "寿司" },
-{ "name": "とろびんちょう", "category": "寿司" },
-{ "name": "とろびんちょう山わさび", "category": "寿司" },
-{ "name": "特製漬けとろびんちょう", "category": "寿司" },
-{ "name": "とろびんちょう 塩ごま油", "category": "寿司" },
-{ "name": "とろたくつつみ", "category": "寿司" },
-{ "name": "とろたくユッケつつみ", "category": "寿司" },
-{ "name": "まぐろ二種盛り", "category": "寿司" },
-{ "name": "サーモン", "category": "寿司" },
-{ "name": "サーモンゆず塩", "category": "寿司" },
-{ "name": "サーモン山わさび", "category": "寿司" },
-{ "name": "サーモンつつみ", "category": "寿司" },
-{ "name": "えび", "category": "寿司" },
-{ "name": "炙りえびマヨ", "category": "寿司" },
-{ "name": "えび 塩ごま油", "category": "寿司" },
-{ "name": "えびたま二種盛り", "category": "寿司" },
-{ "name": "生えび", "category": "寿司" },
-{ "name": "甘えび", "category": "寿司" },
-{ "name": "えび天握り", "category": "寿司" },
-{ "name": "えび天", "category": "サイドメニュー" },
-{ "name": "アカイカ", "category": "寿司" },
-{ "name": "アカイカゆず塩", "category": "寿司" },
-{ "name": "大葉漬けアカイカ", "category": "寿司" },
-{ "name": "旨だしたまご", "category": "寿司" },
-{ "name": "旨だしたまごマヨ", "category": "寿司" },
-{ "name": "わさびなす", "category": "寿司" },
-{ "name": "煮あなご", "category": "寿司" },
-{ "name": "煮あなごゆず塩", "category": "寿司" },
-{ "name": "れんこん天握り", "category": "寿司" },
-{ "name": "れんこん天", "category": "サイドメニュー" },
-{ "name": "いか天握り", "category": "寿司" },
-{ "name": "いか天握り ガーリックマヨ", "category": "寿司" },
-{ "name": "いか天", "category": "サイドメニュー" },
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寿司ガチャ</title>
+  <style>
+    :root {
+      --primary-color: #d9333f;
+      --gold-color: #d4af37;
+      --bg-color: #f4f1ea;
+    }
 
-{ "name": "生ハム", "category": "寿司" },
-{ "name": "生ハムマヨオニオン", "category": "寿司" },
-{ "name": "合鴨", "category": "寿司" },
-{ "name": "合鴨マヨオニオン", "category": "寿司" },
-{ "name": "合鴨ガーリックソース", "category": "寿司" },
-{ "name": "合鴨山わさび", "category": "寿司" },
-{ "name": "炙り合鴨", "category": "寿司" },
-{ "name": "燻製二種盛り", "category": "寿司" },
-{ "name": "ローストビーフ", "category": "寿司" },
-{ "name": "ローストビーフ ガーリックソース", "category": "寿司" },
-{ "name": "ローストビーフ ガーリックソース山わさび", "category": "寿司" },
-{ "name": "豚塩カルビ", "category": "寿司" },
-{ "name": "豚塩カルビマヨ", "category": "寿司" },
-{ "name": "直火焼き牛カルビ", "category": "寿司" },
-{ "name": "直火焼き牛カルビマヨ", "category": "寿司" },
-{ "name": "ハンバーグ", "category": "寿司" },
-{ "name": "ハンバーグマヨ", "category": "寿司" },
-{ "name": "炙りハンバーグチーズマヨ", "category": "寿司" },
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", MeiYo, sans-serif;
+      text-align: center;
+      background-color: var(--bg-color);
+      background-image: radial-gradient(#e2ded4 1px, transparent 1px);
+      background-size: 16px 16px;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+    }
 
-{ "name": "まぐろたたき軍艦", "category": "寿司" },
-{ "name": "ピリ辛まぐろたたきユッケ", "category": "寿司" },
-{ "name": "まぐろたたき納豆", "category": "寿司" },
-{ "name": "たっぷりかにみそ", "category": "寿司" },
-{ "name": "大葉かにみそ", "category": "寿司" },
-{ "name": "かにマヨ軍艦", "category": "寿司" },
-{ "name": "たらマヨ", "category": "寿司" },
-{ "name": "大葉たらこ", "category": "寿司" },
-{ "name": "コーン", "category": "寿司" },
-{ "name": "ツナ＆コーン", "category": "寿司" },
-{ "name": "ツナサラダ", "category": "寿司" },
-{ "name": "ツナキムチ", "category": "寿司" },
-{ "name": "シーフードサラダ", "category": "寿司" },
-{ "name": "いかオクラ", "category": "寿司" },
-{ "name": "いかオクラ納豆", "category": "寿司" },
-{ "name": "納豆", "category": "寿司" },
-{ "name": "納豆キムチ", "category": "寿司" },
-{ "name": "野沢菜昆布軍艦", "category": "寿司" },
-{ "name": "わさびえんがわ", "category": "寿司" },
-{ "name": "かっぱ巻", "category": "寿司" },
-{ "name": "たくあん巻 (ごま入り)", "category": "寿司" },
-{ "name": "納豆巻", "category": "寿司" },
-{ "name": "鉄火巻", "category": "寿司" },
-{ "name": "まぐろたたき巻", "category": "寿司" },
-{ "name": "生ハムロール", "category": "寿司" },
-{ "name": "カリフォルニアロール", "category": "寿司" },
-{ "name": "さばの押し寿司", "category": "寿司" },
-{ "name": "いなり (ごま入り)", "category": "寿司" },
-{ "name": "特製キンパ風 ツナキムチ太巻", "category": "寿司" },
+    .card {
+      background: #ffffff;
+      border: 3px solid var(--gold-color);
+      padding: 20px 20px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      max-width: 380px;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
 
-{ "name": "とろびんちょう レアステーキ", "category": "寿司" },
-{ "name": "サーモンレアステーキ", "category": "寿司" },
-{ "name": "えびレアステーキ", "category": "寿司" },
-{ "name": "アカイカレアステーキ", "category": "寿司" },
-{ "name": "天然赤えび", "category": "寿司" },
-{ "name": "天然赤えび 塩レモン", "category": "寿司" },
-{ "name": "炙り天然赤えび 塩レモン", "category": "寿司" },
-{ "name": "天然赤えびレアステーキ", "category": "寿司" },
-{ "name": "活〆はまち", "category": "寿司" },
-{ "name": "炙りはまちゆず塩", "category": "寿司" },
-{ "name": "活〆まだい", "category": "寿司" },
-{ "name": "炙りまだいゆず塩", "category": "寿司" },
-{ "name": "大とろサーモン", "category": "寿司" },
-{ "name": "大とろサーモン山わさび", "category": "寿司" },
-{ "name": "炙りうなぎ", "category": "寿司" },
-{ "name": "ほたて", "category": "寿司" },
-{ "name": "炙りほたて", "category": "寿司" },
-{ "name": "ほたてレアステーキ", "category": "寿司" },
-{ "name": "つぶ貝", "category": "寿司" },
-{ "name": "赤貝", "category": "寿司" },
-{ "name": "真だこ", "category": "寿司" },
-{ "name": "えんがわ", "category": "寿司" },
-{ "name": "炙りえんがわ", "category": "寿司" },
-{ "name": "炙りえびチーズマヨ", "category": "寿司" },
-{ "name": "炙りサーモンチーズマヨ", "category": "寿司" },
-{ "name": "炙りたまごチーズマヨ", "category": "寿司" },
-{ "name": "宮城県産とろいわし", "category": "寿司" },
-{ "name": "炙り宮城県産とろいわし", "category": "寿司" },
-{ "name": "宮城県産とろいわし漁師漬け", "category": "寿司" },
-{ "name": "サーモンマヨオニオン", "category": "寿司" },
-{ "name": "サーモンマヨアボカド", "category": "寿司" },
-{ "name": "とろびんちょうマヨアボカド", "category": "寿司" },
-{ "name": "えびマヨアボカド", "category": "寿司" },
-{ "name": "生ハムマヨアボカド", "category": "寿司" },
-{ "name": "サーモン おろし盛り", "category": "寿司" },
-{ "name": "豚塩カルビ おろし盛り", "category": "寿司" },
-{ "name": "えび天握り おろし盛り", "category": "寿司" },
-{ "name": "いか天握り おろし盛り", "category": "寿司" },
-{ "name": "サーモン 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "生ハム 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "えび 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "アカイカ 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "とろびんちょう 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "豚塩カルビ 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "牛カルビ 旨辛ネギ盛り", "category": "寿司" },
-{ "name": "サーモンつつみ (いくらのせ)", "category": "寿司" },
-{ "name": "いくら", "category": "寿司" },
-{ "name": "とろいくら", "category": "寿司" },
-{ "name": "生しらす（日本近海産）", "category": "寿司" },
-{ "name": "つぶっこ", "category": "寿司" },
-{ "name": "かに軍艦", "category": "寿司" },
-{ "name": "かにみそ軍艦", "category": "寿司" },
-{ "name": "アスパラ天握り", "category": "寿司" },
-{ "name": "アスパラ天", "category": "サイドメニュー" },
-{ "name": "まぐろ三種盛り", "category": "寿司" },
-{ "name": "いか三種盛り", "category": "寿司" },
-{ "name": "いか三種盛り", "category": "寿司" },
-{ "name": "サーモン三種盛り", "category": "寿司" },
-{ "name": "えび三種盛り", "category": "寿司" },
-{ "name": "レアステーキ三種盛り", "category": "寿司" },
-{ "name": "とろ三種盛り", "category": "寿司" },
-{ "name": "とろネバ三種盛り", "category": "寿司" },
-{ "name": "サラダ軍艦三種盛り", "category": "寿司" },
+    /* ヘッダーエリア */
+    .header-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
 
-{ "name": "厳選まぐろ中とろ食べ比べ", "category": "寿司" },
-{ "name": "厳選まぐろ中とろ食べ比べ", "category": "寿司" },
-{ "name": "天然赤えび食べ比べ", "category": "寿司" },
-{ "name": "天然赤えび食べ比べ", "category": "寿司" },
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-{ "name": "焼津産かつおだしの 特製茶碗蒸し", "category": "サイドメニュー" },
-{ "name": "あおさみそ汁", "category": "サイドメニュー" },
-{ "name": "あさりみそ汁", "category": "サイドメニュー" },
-{ "name": "特製とん汁", "category": "サイドメニュー" },
-{ "name": "かけうどん", "category": "サイドメニュー" },
-{ "name": "きつねうどん", "category": "サイドメニュー" },
-{ "name": "えびの天ぷらそば", "category": "サイドメニュー" },
-{ "name": "えびの天ぷらうどん", "category": "サイドメニュー" },
-{ "name": "あさりとあおさのうどん", "category": "サイドメニュー" },
-{ "name": "鴨そば", "category": "サイドメニュー" },
-{ "name": "鴨うどん", "category": "サイドメニュー" },
-{ "name": "えび天きつねうどん", "category": "サイドメニュー" },
-{ "name": "えび天鴨そば", "category": "サイドメニュー" },
-{ "name": "えび天鴨うどん", "category": "サイドメニュー" },
-{ "name": "特製しょう油ラーメン", "category": "サイドメニュー" },
-{ "name": "焼豚増量 特製しょう油ラーメン", "category": "サイドメニュー" },
-{ "name": "厳選素材の貝節塩ラーメン", "category": "サイドメニュー" },
-{ "name": "焼豚増量 厳選素材の貝節塩ラーメン", "category": "サイドメニュー" },
-{ "name": "鶏のから揚げ(4個)", "category": "サイドメニュー" },
-{ "name": "鶏のから揚げ(2個)", "category": "サイドメニュー" },
-{ "name": "カリカリポテト", "category": "サイドメニュー" },
-{ "name": "カリカリポテト（バター醤油味）", "category": "サイドメニュー" },
-{ "name": "チーズカリカリポテト", "category": "サイドメニュー" },
-{ "name": "MEGAカリカリポテト", "category": "サイドメニュー" },
-{ "name": "MEGAカリカリポテト（バター醤油味）", "category": "サイドメニュー" },
-{ "name": "旨だしたこ焼き(3個)", "category": "サイドメニュー" },
-{ "name": "旨だしたこ焼き(6個)", "category": "サイドメニュー" },
-{ "name": "チーズたこ焼き(6個)", "category": "サイドメニュー" },
-{ "name": "あさりの酒蒸し", "category": "サイドメニュー" },
-{ "name": "ツナとブロッコリーの タルタルサラダ", "category": "サイドメニュー" },
-{ "name": "旨だし厚焼きたまご", "category": "サイドメニュー" },
-{ "name": "旨だし厚焼きたまごおろし添え", "category": "サイドメニュー" },
-{ "name": "枝豆", "category": "サイドメニュー" },
-{ "name": "キムチ", "category": "サイドメニュー" },
-{ "name": "〆シャリ", "category": "サイドメニュー" },
-{ "name": "追加トッピング 焼豚", "category": "サイドメニュー" },
-{ "name": "追加トッピング 煮玉子", "category": "サイドメニュー" },
-{ "name": "追加トッピング 旨辛ネギ", "category": "サイドメニュー" },
-{ "name": "追加トッピング 大根おろし", "category": "サイドメニュー" },
-{ "name": "追加トッピング カットレモン", "category": "サイドメニュー" },
-{ "name": "追加トッピング タルタルソース", "category": "サイドメニュー" },
-{ "name": "追加トッピング ケチャップ", "category": "サイドメニュー" },
-{ "name": "追加トッピング マヨ", "category": "サイドメニュー" },
+    h1 {
+      font-size: 1.2rem;
+      color: #333;
+      margin: 0;
+      letter-spacing: 1px;
+    }
 
-{ "name": "ミルクレープ", "category": "デザート" },
-{ "name": "フランス直輸入 濃厚ガトーショコラ", "category": "デザート" },
-{ "name": "たまごプリン", "category": "デザート" },
-{ "name": "黒蜜きなこ豆乳プリン", "category": "デザート" },
-{ "name": "大学いも", "category": "デザート" },
-{ "name": "大学いも バニラアイス添え", "category": "デザート" },
-{ "name": "コーヒーゼリー (バニラアイスのせ)", "category": "デザート" },
-{ "name": "コーヒーゼリー", "category": "デザート" },
-{ "name": "チョコとバニラのはまパルフェ", "category": "デザート" },
-{ "name": "三色だんご（こしあん入り）", "category": "デザート" },
-{ "name": "フレッシュパイン", "category": "デザート" },
-{ "name": "波照間黒糖のわらびもち", "category": "デザート" },
-{ "name": "波照間黒糖のわらびもち バニラアイス添え", "category": "デザート" },
-{ "name": "はまアイス（バニラ）", "category": "デザート" },
-{ "name": "はまアイス（チョコレート）", "category": "デザート" },
-{ "name": "豆乳いちごアイス", "category": "デザート" },
-{ "name": "追加トッピング ホイップ", "category": "デザート" },
+    /* 音声ON/OFF・設定アイコンボタン */
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      opacity: 0.7;
+      transition: opacity 0.2s, transform 0.2s;
+      outline: none;
+    }
 
-{ "name": "コーラフロート", "category": "ドリンク" },
-{ "name": "メロンソーダフロート", "category": "ドリンク" },
-{ "name": "コーヒーフロート", "category": "ドリンク" },
-{ "name": "コカ・コーラ", "category": "ドリンク" },
-{ "name": "カルピス", "category": "ドリンク" },
-{ "name": "カルピスソーダ", "category": "ドリンク" },
-{ "name": "ファンタメロン", "category": "ドリンク" },
-{ "name": "ファンタグレープ", "category": "ドリンク" },
-{ "name": "スプライト", "category": "ドリンク" },
-{ "name": "煌烏龍茶", "category": "ドリンク" },
-{ "name": "Qoo オレンジ", "category": "ドリンク" },
-{ "name": "アップル100％ジュース", "category": "ドリンク" },
-{ "name": "ぶどう100％ジュース", "category": "ドリンク" },
-{ "name": "コーヒー（HOT／ICE）", "category": "ドリンク" },
-{ "name": "カフェラテ（HOT／ICE）", "category": "ドリンク" },
-{ "name": "抹茶ラテ（HOT／ICE）", "category": "ドリンク" },
+    .icon-btn:hover {
+      opacity: 1;
+    }
 
-{ "name": "生ビール中ジョッキ", "category": "ドリンク" },
-{ "name": "生ビール小ジョッキ", "category": "ドリンク" },
-{ "name": "ブラックニッカハイボール", "category": "ドリンク" },
-{ "name": "日本酒 金勝山", "category": "ドリンク" },
-{ "name": "麦焼酎 白水", "category": "ドリンク" },
-{ "name": "芋焼酎 薩摩宝山", "category": "ドリンク" },
-{ "name": "レモンサワー", "category": "ドリンク" },
-{ "name": "グレープフルーツサワー", "category": "ドリンク" },
-{ "name": "サントリーオールフリー", "category": "ドリンク" }
-]
+    .config-btn:hover {
+      transform: rotate(45deg);
+    }
+
+    /* コンパクトな店舗選択 */
+    .shop-select-compact {
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #444;
+      background-color: #fff;
+      border: 1.5px solid var(--gold-color);
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* 共通設定エリア */
+    .setting-box {
+      background: #fff8e1;
+      border: 1.5px solid var(--gold-color);
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      min-height: 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .setting-title {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #b78103;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    /* カテゴリーボタン */
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1.5px solid #ccc;
+      background: #f0f0f0;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      line-height: 1.2;
+    }
+
+    .filter-btn[data-cat="寿司"].active {
+      border-color: #d9333f;
+      background: #ffebee;
+      color: #c62828;
+    }
+    .filter-btn[data-cat="サイドメニュー"].active {
+      border-color: #2e7d32;
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .filter-btn[data-cat="デザート"].active {
+      border-color: #ad1457;
+      background: #fce4ec;
+      color: #ad1457;
+    }
+    .filter-btn[data-cat="ドリンク"].active {
+      border-color: #1565c0;
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    /* 「好きな寿司一皿」混入スイッチエリア */
+    .free-mode-section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .free-mode-label {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #b78103;
+    }
+
+    .result-box {
+      background: #fafafa;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+      padding: 15px;
+    }
+
+    .category {
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .cat-寿司 { background: #ffebee; color: #c62828; }
+    .cat-サイドメニュー { background: #e8f5e9; color: #2e7d32; }
+    .cat-デザート { background: #fce4ec; color: #ad1457; }
+    .cat-ドリンク { background: #e3f2fd; color: #1565c0; }
+    .cat-スペシャル { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+    .cat-default { background: #eee; color: #666; }
+
+    .menu-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #222;
+      margin: 5px 0;
+      line-height: 1.3;
+    }
+
+    .roulette-anim {
+      animation: pulse 0.1s infinite alternate;
+      color: #888;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .btn-draw {
+      background: linear-gradient(135deg, #e60012, #aa000d);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 6px 15px rgba(230,0,18,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-draw:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 5px rgba(230,0,18,0.3);
+    }
+
+    .btn-draw:disabled {
+      background: #ccc;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    /* トグルスイッチ共通スタイル */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--gold-color);
+    }
+
+    #beerTrickToggle:checked + .slider {
+      background-color: #d9333f;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* モーダル画面 */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 100;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      width: 85%;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .modal-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    /* 最終更新日表示エリア */
+    .last-updated-badge {
+      font-size: 0.75rem;
+      color: #666;
+      background: #f0f0f0;
+      border-radius: 12px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .count-summary {
+      font-size: 0.8rem;
+      color: #555;
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 12px 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .count-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .count-num {
+      font-weight: bold;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    /* 確率設定セクション */
+    .prob-setting-section {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .prob-setting-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .prob-value {
+      font-size: 0.95rem;
+      color: #b78103;
+      font-weight: bold;
+    }
+
+    .prob-slider {
+      width: 100%;
+      accent-color: var(--gold-color);
+      cursor: pointer;
+    }
+
+    .trick-option {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .trick-label {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .btn-close {
+      background: #eee;
+      border: none;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      border-radius: 20px;
+      color: #555;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- ヘッダー -->
+    <div class="header-area">
+      <h1>🍣 寿司ガチャ</h1>
+      <div class="header-right">
+        <select id="shopSelect" class="shop-select-compact" onchange="loadMenuData()">
+          <option value="menu/sushiro.json">スシロー</option>
+          <option value="menu/kura.json">くら寿司</option>
+          <option value="menu/hamazushi.json">はま寿司</option>
+        </select>
+        <!-- 音声切り替えボタン ＆ 設定ボタン -->
+        <button class="icon-btn" id="soundBtn" onclick="toggleSound()" title="音の切替">🔊</button>
+        <button class="icon-btn config-btn" onclick="openModal()" title="設定">⚙️</button>
+      </div>
+    </div>
+
+    <!-- 対象カテゴリー（初期値：「寿司」のみactive） -->
+    <div class="setting-box">
+      <div class="setting-title">対象カテゴリー</div>
+      <div class="filter-container">
+        <button class="filter-btn active" data-cat="寿司" onclick="toggleFilter(this)">寿司</button>
+        <button class="filter-btn" data-cat="サイドメニュー" onclick="toggleFilter(this)">サイド</button>
+        <button class="filter-btn" data-cat="デザート" onclick="toggleFilter(this)">デザート</button>
+        <button class="filter-btn" data-cat="ドリンク" onclick="toggleFilter(this)">ドリンク</button>
+      </div>
+    </div>
+
+    <!-- 好きな寿司一皿（初期値：OFF） -->
+    <div class="setting-box free-mode-section">
+      <span class="free-mode-label">好きな寿司一皿</span>
+      <label class="switch">
+        <input type="checkbox" id="freeChoiceToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="result-box" id="resultBox">
+      <div id="statusText" style="color: #666;">ボタンを押してガチャを回そう！</div>
+    </div>
+
+    <button class="btn-draw" id="drawBtn" onclick="startGacha()">次になに食べる？</button>
+  </div>
+
+  <!-- モーダルパネル -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-content">
+      <div class="modal-title">⚙️ 各種設定・データ情報</div>
+      
+      <!-- 最終更新日表示 -->
+      <div class="last-updated-badge">
+        📅 データ更新日: <span id="lastUpdatedDate">----/--/--</span>
+      </div>
+
+      <div class="count-summary">
+        <div class="count-item"><span>全件</span><span class="count-num" id="cntTotal">-</span></div>
+        <div class="count-item"><span>🍣</span><span class="count-num" id="cntSushi">-</span></div>
+        <div class="count-item"><span>🍜</span><span class="count-num" id="cntSide">-</span></div>
+        <div class="count-item"><span>🍨</span><span class="count-num" id="cntDessert">-</span></div>
+        <div class="count-item"><span>🥤</span><span class="count-num" id="cntDrink">-</span></div>
+      </div>
+
+      <!-- 「好きな寿司一皿」の当選確率調整スライダー（初期値：5%） -->
+      <div class="prob-setting-section">
+        <div class="prob-setting-header">
+          <span>🍣 「好きな寿司一皿」当選確率</span>
+          <span class="prob-value" id="probValDisplay">5%</span>
+        </div>
+        <input type="range" id="probRange" class="prob-slider" min="5" max="100" step="5" value="5" oninput="updateProbDisplay(this.value)">
+      </div>
+
+      <!-- 隠しイカサマスイッチ -->
+      <div class="trick-option">
+        <span class="trick-label">🍺</span>
+        <label class="switch">
+          <input type="checkbox" id="beerTrickToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <button class="btn-close" onclick="closeModal()">閉じる</button>
+    </div>
+  </div>
+
+  <script>
+    let menus = [];
+    let isSpinning = false;
+    let isSoundEnabled = true;
+
+    /* Web Audio API 設定 */
+    let audioCtx = null;
+    let drumrollInterval = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleSound() {
+      isSoundEnabled = !isSoundEnabled;
+      document.getElementById('soundBtn').textContent = isSoundEnabled ? '🔊' : '🔇';
+      if (isSoundEnabled) {
+        initAudio();
+      }
+    }
+
+    function playSnare() {
+      if (!isSoundEnabled) return;
+      initAudio();
+
+      try {
+        const now = audioCtx.currentTime;
+        const bufferSize = audioCtx.sampleRate * 0.05;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buffer;
+
+        const noiseFilter = audioCtx.createBiquadFilter();
+        noiseFilter.type = 'highpass';
+        noiseFilter.frequency.setValueAtTime(1000, now);
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(0.4, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+
+        noise.connect(noiseFilter);
+        noiseFilter.connect(noiseGain);
+        noiseGain.connect(audioCtx.destination);
+
+        const osc = audioCtx.createOscillator();
+        const oscGain = audioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(180, now);
+        osc.frequency.exponentialRampToValueAtTime(40, now + 0.04);
+
+        oscGain.gain.setValueAtTime(0.5, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.01, now + 0.04);
+
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+
+        noise.start(now);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      } catch (e) {
+        console.error("Audio error:", e);
+      }
+    }
+
+    function startDrumroll() {
+      if (!isSoundEnabled) return;
+      stopDrumroll();
+      drumrollInterval = setInterval(playSnare, 45);
+    }
+
+    function stopDrumroll() {
+      if (drumrollInterval) {
+        clearInterval(drumrollInterval);
+        drumrollInterval = null;
+      }
+    }
+
+    function playCymbal() {
+      if (!isSoundEnabled) return;
+      initAudio();
+
+      try {
+        const now = audioCtx.currentTime;
+        const duration = 1.5;
+
+        const bufferSize = audioCtx.sampleRate * duration;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const cymbal = audioCtx.createBufferSource();
+        cymbal.buffer = buffer;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(3500, now);
+
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.6, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+        cymbal.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const bass = audioCtx.createOscillator();
+        const bassGain = audioCtx.createGain();
+        bass.type = 'sine';
+        bass.frequency.setValueAtTime(120, now);
+        bass.frequency.exponentialRampToValueAtTime(30, now + 0.15);
+        bassGain.gain.setValueAtTime(0.7, now);
+        bassGain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+
+        bass.connect(bassGain);
+        bassGain.connect(audioCtx.destination);
+
+        cymbal.start(now);
+        bass.start(now);
+        bass.stop(now + 0.15);
+      } catch (e) {
+        console.error("Audio error:", e);
+      }
+    }
+
+    function updateProbDisplay(val) {
+      document.getElementById('probValDisplay').textContent = `${val}%`;
+    }
+
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+
+    function closeModalOutside(event) {
+      if (event.target.id === 'modalOverlay') {
+        closeModal();
+      }
+    }
+
+    function updateCounts(data) {
+      const total = data.length;
+      const sushi = data.filter(item => item.category === '寿司').length;
+      const side = data.filter(item => item.category === 'サイドメニュー').length;
+      const dessert = data.filter(item => item.category === 'デザート').length;
+      const drink = data.filter(item => item.category === 'ドリンク').length;
+
+      document.getElementById('cntTotal').textContent = total;
+      document.getElementById('cntSushi').textContent = sushi;
+      document.getElementById('cntSide').textContent = side;
+      document.getElementById('cntDessert').textContent = dessert;
+      document.getElementById('cntDrink').textContent = drink;
+    }
+
+    function resetCounts() {
+      document.getElementById('cntTotal').textContent = '-';
+      document.getElementById('cntSushi').textContent = '-';
+      document.getElementById('cntSide').textContent = '-';
+      document.getElementById('cntDessert').textContent = '-';
+      document.getElementById('cntDrink').textContent = '-';
+      document.getElementById('lastUpdatedDate').textContent = '----/--/--';
+    }
+
+    function loadMenuData() {
+      const selectedPath = document.getElementById("shopSelect").value;
+      const resultBox = document.getElementById("resultBox");
+
+      fetch(selectedPath)
+        .then(response => {
+          if (!response.ok) throw new Error('File not found');
+          return response.json();
+        })
+        .then(data => {
+          // オブジェクト形式 { last_updated: "", items: [] } に対応
+          if (data.last_updated && data.items) {
+            menus = data.items;
+            document.getElementById('lastUpdatedDate').textContent = data.last_updated;
+          } 
+          // 旧フォーマット (配列形式) に対する互換性処理
+          else if (Array.isArray(data)) {
+            menus = data;
+            document.getElementById('lastUpdatedDate').textContent = '未設定';
+          }
+
+          updateCounts(menus);
+          resultBox.innerHTML = '<div style="color: #666;">ボタンを押してガチャを回そう！</div>';
+        })
+        .catch(error => {
+          console.error('データの読み込みに失敗しました:', error);
+          menus = [];
+          resetCounts();
+          resultBox.innerHTML = '<div style="color:#d9333f; font-size: 0.85rem;">メニューデータを準備中です<br>(JSON未配置)</div>';
+        });
+    }
+
+    window.onload = loadMenuData;
+
+    function toggleFilter(btn) {
+      if (isSpinning) return;
+      btn.classList.toggle('active');
+    }
+
+    function getSelectedCategories() {
+      const activeBtns = document.querySelectorAll('.filter-btn.active');
+      return Array.from(activeBtns).map(btn => btn.getAttribute('data-cat'));
+    }
+
+    function getCategoryClass(cat) {
+      if (['寿司', 'サイドメニュー', 'デザート', 'ドリンク'].includes(cat)) {
+        return `cat-${cat}`;
+      }
+      if (cat === 'SPECIAL') return 'cat-スペシャル';
+      return 'cat-default';
+    }
+
+    function startGacha() {
+      if (isSpinning) return;
+
+      initAudio();
+
+      const isBeerTrick = document.getElementById('beerTrickToggle').checked;
+      const isFreeChoiceIncluded = document.getElementById('freeChoiceToggle').checked;
+
+      const specialProbability = parseInt(document.getElementById('probRange').value, 10) / 100;
+
+      let candidateList = [];
+
+      if (!isBeerTrick) {
+        if (menus.length === 0) {
+          alert("選択された店舗のメニューデータがありません。");
+          return;
+        }
+
+        const selectedCats = getSelectedCategories();
+        if (selectedCats.length === 0) {
+          alert("カテゴリーを1つ以上選択してください！");
+          return;
+        }
+
+        candidateList = menus.filter(item => selectedCats.includes(item.category));
+        if (candidateList.length === 0) {
+          alert("選択したカテゴリーのメニューが存在しません。");
+          return;
+        }
+      } else {
+        candidateList = menus.length > 0 ? menus : [{ name: '生ビール', category: 'ドリンク' }];
+      }
+
+      let animList = [...candidateList];
+      if (isFreeChoiceIncluded && !isBeerTrick) {
+        animList.push({ name: "🎉 好きな寿司一皿！", category: "SPECIAL" });
+      }
+
+      isSpinning = true;
+      const btn = document.getElementById("drawBtn");
+      const resultBox = document.getElementById("resultBox");
+      btn.disabled = true;
+
+      startDrumroll();
+
+      let counter = 0;
+      const maxCount = 25;
+      const speed = 70;
+
+      const timer = setInterval(() => {
+        const tempItem = animList[Math.floor(Math.random() * animList.length)];
+        const catClass = getCategoryClass(tempItem.category);
+
+        resultBox.innerHTML = `
+          <div class="category ${catClass}">${tempItem.category}</div>
+          <div class="menu-name roulette-anim">${tempItem.name}</div>
+        `;
+        counter++;
+
+        if (counter >= maxCount) {
+          clearInterval(timer);
+          
+          stopDrumroll();
+          playCymbal();
+
+          let finalItem;
+          if (isBeerTrick) {
+            finalItem = { name: "生ビール", category: "ドリンク" };
+          } else if (isFreeChoiceIncluded && Math.random() < specialProbability) {
+            finalItem = { name: "🎉 好きな寿司一皿！", category: "SPECIAL" };
+          } else {
+            finalItem = candidateList[Math.floor(Math.random() * candidateList.length)];
+          }
+
+          const finalCatClass = getCategoryClass(finalItem.category);
+
+          resultBox.innerHTML = `
+            <div class="category ${finalCatClass}">${finalItem.category}</div>
+            <div class="menu-name" style="color: var(--primary-color);">${finalItem.name}</div>
+          `;
+          btn.disabled = false;
+          btn.textContent = "もう一皿引く！";
+          isSpinning = false;
+        }
+      }, speed);
+    }
+  </script>
+
+</body>
+</html>
